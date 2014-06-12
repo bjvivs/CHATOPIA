@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,14 +8,16 @@ using System.Threading.Tasks;
 
 namespace CHATOPIA.ViewModels
 {
-    class MessageStreamViewModel
+    class MessageStreamViewModel : Screen
     {
         ObservableCollection<string> _Messages;
 
         public ObservableCollection<string> Messages
         {
             get { return _Messages; }
-            set { _Messages = value;  }
+            set { _Messages = value;
+            NotifyOfPropertyChange(() => Messages);
+            }
         }
 
     }

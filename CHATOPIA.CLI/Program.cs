@@ -13,7 +13,7 @@ namespace CHATOPIA.CLI
         string _Description;
 
         //  property
-        public string Description
+        public string Name
         {
             // read
             get { return _Description; }
@@ -22,7 +22,6 @@ namespace CHATOPIA.CLI
             set
             {
                 _Description = value;
-                Console.WriteLine("Descripton updated to: '{0}'", value);
                 FirePropertyChanged("Description");
             }
         }
@@ -44,7 +43,7 @@ namespace CHATOPIA.CLI
         {
             var s = new Something();
             s.PropertyChanged += s_PropertyChanged;
-            s.Description = "The Description is this ";
+            s.Name = "The Description is this ";
 
             Console.WriteLine("Press Enter to Exit.");
             Console.ReadLine();

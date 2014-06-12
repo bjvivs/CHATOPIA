@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace CHATOPIA.ViewModels
 {
-    class MessageEntryViewModel
+    class MessageEntryViewModel : Screen
     {
         // member variable
         private string _Message;
+        IEventAggregator _EventAggregator;
 
         /// <summary>
         /// contains the text to be sent 
@@ -21,12 +23,21 @@ namespace CHATOPIA.ViewModels
             set 
             {
                 _Message = value;
+                NotifyOfPropertyChange(() => Message);
             }
         }
         // method
+        // TODO: fix bug
         public void Send() {
 
+            if (_Message != string.Empty)
+            { 
+                _EventAggregator.PublishOnUIThread(new AggEvents.SendMessageAggEvent { Message = this.Message }); 
+            }
+            
             _Message = String.Empty;
+            
+
         }
     }
 }
