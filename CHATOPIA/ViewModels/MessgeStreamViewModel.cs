@@ -8,9 +8,16 @@ using System.Threading.Tasks;
 
 namespace CHATOPIA.ViewModels
 {
-    class MessageStreamViewModel : Screen
+    class MessageStreamViewModel : Screen , IHandle<AggEvents.SendMessageAggEvent>
     {
+        IEventAggregator _EventAggregator;
         ObservableCollection<string> _Messages;
+
+        public MessageStreamViewModel(IEventAggregator eventAggregator) 
+        {
+            _EventAggregator = eventAggregator;
+            _EventAggregator.Subscribe(this);
+        }
 
         public ObservableCollection<string> Messages
         {
@@ -20,5 +27,10 @@ namespace CHATOPIA.ViewModels
             }
         }
 
+
+        public void Handle(AggEvents.SendMessageAggEvent message)
+        {
+            Messages.Add(message.Message);
+        }
     }
 }

@@ -67,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BootStrapper.cs" />
     <Compile Include="ViewModels\MessageEntryViewModel.cs" />
     <Compile Include="ViewModels\MessgeStreamViewModel.cs" />
     <Compile Include="ViewModels\RoomListViewModel.cs" />
