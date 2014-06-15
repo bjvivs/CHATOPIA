@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.4.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Caliburn.Micro">
       <HintPath>..\packages\Caliburn.Micro.Core.2.0.0\lib\net45\Caliburn.Micro.dll</HintPath>
     </Reference>
@@ -67,7 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BootStrapper.cs" />
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="ViewModels\MessageEntryViewModel.cs" />
     <Compile Include="ViewModels\MessgeStreamViewModel.cs" />
     <Compile Include="ViewModels\RoomListViewModel.cs" />
