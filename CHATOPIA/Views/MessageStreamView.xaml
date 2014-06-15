@@ -6,6 +6,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+		<ListView ItemsSource="{Binding Messages}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<!-- 
+						If we do not specifiy a 'Path' attribute for binding, it is assumed we want to bind the object itself.  in this case, since
+						we are binding a list of strings, we are Ok to bind to the object (a string) directly.  in real world applications, you
+						will typically bind to a property of the object in the list.
+					-->
+					<TextBlock Text="{Binding}" />
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
     </Grid>
 </UserControl>
